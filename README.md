@@ -1,3 +1,3 @@
-#Pluralsight
+Pluralsight
 
-##Typescript tutorial
+Typescript tutorial
