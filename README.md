@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TypeScript-Getting-Started
 
 This is the official repository for my Pluralsight course titled [*TypeScript: Getting Started*](https://app.pluralsight.com/library/courses/typescript-getting-started/table-of-contents). 
@@ -8,3 +9,8 @@ exists at the end of that module.
 I will update this repo below with any problems or small issues reported between updates to the actual course.
 
 Thanks for watching and good luck on your TypeScript projects!
+=======
+Pluralsight
+
+Typescript tutorial
+>>>>>>> 047d19ff93d1ef4130f8e5b614d52c889fe7a7ec
