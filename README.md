@@ -1,4 +1,3 @@
 Pluralsight
 
 Typescript tutorial
-

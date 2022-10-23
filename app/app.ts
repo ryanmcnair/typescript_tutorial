@@ -1,46 +1,21 @@
-function startGame() {
-    // starting a new game
-    let playerName: string | undefined = getInputValue('playername');
-    logPlayer(playerName);
-    
-    postScore(80, playerName);
-    postScore(-5, playerName);
-}
+/// <reference path="player.ts" />
+/// <reference path="game.ts" />
 
-function logPlayer(name: string = 'MultiMath Player'): void {
-    console.log(`New game starting for player: ${name}`)
-}
+let newGame: Game;
 
-function getInputValue(elementId: string): string | undefined {
-    const inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById(elementId);
+// add click handler to the start game button
+document.getElementById('startGame')!.addEventListener('click', () => {
+  const player: Player = new Player();
+  player.name = Utility.getInputValue('playername');
 
-    if (inputElement.value === '') {
-        return undefined;
-    } else {
-        return inputElement.value;
-    }
-}
+  const problemCount: number = Number(Utility.getInputValue('problemCount'));
+  const factor: number = Number(Utility.getInputValue('factor'));
 
-function postScore(score: number, playerName: string = 'MultiMath Player'): void {
+  newGame = new Game(player, problemCount, factor);
+  newGame.displayGame();
+});
 
-    let logger: (value: string) => void;
-
-    if (score < 0) {
-        logger = logError;
-    } else {
-        logger = logMessage;
-    }
-
-    const scoreElement: HTMLElement | null = document.getElementById('postedScores');
-    scoreElement!.innerText = `${score} - ${playerName}`;
-}
-
-document.getElementById('startGame')!.addEventListener('click', startGame);
-
-const logMessage = (message: string) => console.log(message);
-
-logMessage('Welcome to MultiMath');
-
-function logError(err: string): void {
-    console.error(err);
-}
+// add click handler to the calculate score button
+document.getElementById('calculate')!.addEventListener('click', () => {
+  newGame.calculateScore();
+});
